@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeartDisease.API", "HeartDisease.API.csproj", "{5865D2D8-1A94-4901-A07C-E6FBD5B3B198}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartDisease.Domain", "..\HeartDisease.Domain\HeartDisease.Domain.csproj", "{EB050B9B-B638-4C04-B8A8-1F40AAB0E759}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartDisease.Infrastructure", "..\HeartDisease.Infrastructure\HeartDisease.Infrastructure.csproj", "{26D124E1-2307-4EAB-9487-A0043567ED26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartDisease.Application", "..\HeartDisease.Application\HeartDisease.Application.csproj", "{4004A3BF-1761-4F11-8B9F-841BC045965C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartDisease.Common", "..\HeartDisease.Common\HeartDisease.Common.csproj", "{9DEF4809-367B-4880-837A-1B446FAEFAA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeartDisease.Tests", "..\HeartDisease.Tests\HeartDisease.Tests.csproj", "{57986925-7ED2-43D0-A4DB-E33E4332B43C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5865D2D8-1A94-4901-A07C-E6FBD5B3B198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5865D2D8-1A94-4901-A07C-E6FBD5B3B198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5865D2D8-1A94-4901-A07C-E6FBD5B3B198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5865D2D8-1A94-4901-A07C-E6FBD5B3B198}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB050B9B-B638-4C04-B8A8-1F40AAB0E759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB050B9B-B638-4C04-B8A8-1F40AAB0E759}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB050B9B-B638-4C04-B8A8-1F40AAB0E759}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB050B9B-B638-4C04-B8A8-1F40AAB0E759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26D124E1-2307-4EAB-9487-A0043567ED26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26D124E1-2307-4EAB-9487-A0043567ED26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26D124E1-2307-4EAB-9487-A0043567ED26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26D124E1-2307-4EAB-9487-A0043567ED26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4004A3BF-1761-4F11-8B9F-841BC045965C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4004A3BF-1761-4F11-8B9F-841BC045965C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4004A3BF-1761-4F11-8B9F-841BC045965C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4004A3BF-1761-4F11-8B9F-841BC045965C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DEF4809-367B-4880-837A-1B446FAEFAA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DEF4809-367B-4880-837A-1B446FAEFAA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DEF4809-367B-4880-837A-1B446FAEFAA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DEF4809-367B-4880-837A-1B446FAEFAA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57986925-7ED2-43D0-A4DB-E33E4332B43C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57986925-7ED2-43D0-A4DB-E33E4332B43C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57986925-7ED2-43D0-A4DB-E33E4332B43C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57986925-7ED2-43D0-A4DB-E33E4332B43C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12235242-998B-433D-9285-9F86DC61E265}
+	EndGlobalSection
+EndGlobal

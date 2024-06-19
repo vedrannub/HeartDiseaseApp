@@ -1,0 +1,17 @@
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Infrastructure.deps.json
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Infrastructure.runtimeconfig.json
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Infrastructure.dll
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Infrastructure.pdb
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Domain.dll
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Domain.pdb
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.csproj.AssemblyReference.cache
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.AssemblyInfoInputs.cache
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.AssemblyInfo.cs
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDis.F09FE762.Up2Date
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.dll
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\refint\HeartDisease.Infrastructure.dll
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.pdb
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.genruntimeconfig.cache
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\ref\HeartDisease.Infrastructure.dll

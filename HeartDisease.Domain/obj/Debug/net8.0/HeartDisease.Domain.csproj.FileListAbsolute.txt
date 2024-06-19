@@ -1,0 +1,12 @@
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\HeartDisease.Domain.deps.json
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\HeartDisease.Domain.dll
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\HeartDisease.Domain.pdb
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.csproj.AssemblyReference.cache
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.AssemblyInfoInputs.cache
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.AssemblyInfo.cs
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.csproj.CoreCompileInputs.cache
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.dll
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\refint\HeartDisease.Domain.dll
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.pdb
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\ref\HeartDisease.Domain.dll
