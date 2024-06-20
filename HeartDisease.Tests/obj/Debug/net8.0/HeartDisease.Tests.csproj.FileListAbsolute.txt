@@ -162,3 +162,4 @@ C:\Diplomska\HeartDisease.Tests\obj\Debug\net8.0\refint\HeartDisease.Tests.dll
 C:\Diplomska\HeartDisease.Tests\obj\Debug\net8.0\HeartDisease.Tests.pdb
 C:\Diplomska\HeartDisease.Tests\obj\Debug\net8.0\HeartDisease.Tests.genruntimeconfig.cache
 C:\Diplomska\HeartDisease.Tests\obj\Debug\net8.0\ref\HeartDisease.Tests.dll
+C:\Diplomska\HeartDisease.Tests\obj\Debug\net8.0\HeartDisease.Tests.sourcelink.json

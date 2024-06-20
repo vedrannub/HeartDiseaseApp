@@ -13,3 +13,13 @@ C:\Diplomska\HeartDisease.Common\obj\Debug\net8.0\HeartDisease.Common.dll
 C:\Diplomska\HeartDisease.Common\obj\Debug\net8.0\refint\HeartDisease.Common.dll
 C:\Diplomska\HeartDisease.Common\obj\Debug\net8.0\HeartDisease.Common.pdb
 C:\Diplomska\HeartDisease.Common\obj\Debug\net8.0\ref\HeartDisease.Common.dll
+C:\Diplomska\HeartDisease.Common\obj\Debug\net8.0\HeartDisease.Common.sourcelink.json
+C:\Diplomska\HeartDisease.Common\bin\Debug\net8.0\HeartDisease.Tests.deps.json
+C:\Diplomska\HeartDisease.Common\bin\Debug\net8.0\HeartDisease.Tests.runtimeconfig.json
+C:\Diplomska\HeartDisease.Common\bin\Debug\net8.0\testhost.exe
+C:\Diplomska\HeartDisease.Common\bin\Debug\net8.0\testhost.dll
+C:\Diplomska\HeartDisease.Common\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Diplomska\HeartDisease.Common\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Diplomska\HeartDisease.Common\bin\Debug\net8.0\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Diplomska\HeartDisease.Common\bin\Debug\net8.0\HeartDisease.Tests.dll
+C:\Diplomska\HeartDisease.Common\bin\Debug\net8.0\HeartDisease.Tests.pdb

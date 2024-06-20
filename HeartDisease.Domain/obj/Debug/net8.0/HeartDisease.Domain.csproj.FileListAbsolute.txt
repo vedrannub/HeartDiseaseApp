@@ -10,3 +10,14 @@ C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.dll
 C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\refint\HeartDisease.Domain.dll
 C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.pdb
 C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\ref\HeartDisease.Domain.dll
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDisease.Domain.sourcelink.json
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\HeartDisease.Tests.deps.json
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\HeartDisease.Tests.runtimeconfig.json
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\testhost.exe
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\testhost.dll
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\HeartDisease.Tests.dll
+C:\Diplomska\HeartDisease.Domain\bin\Debug\net8.0\HeartDisease.Tests.pdb
+C:\Diplomska\HeartDisease.Domain\obj\Debug\net8.0\HeartDis.D6291BAD.Up2Date

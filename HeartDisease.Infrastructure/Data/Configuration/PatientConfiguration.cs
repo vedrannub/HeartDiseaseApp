@@ -1,4 +1,4 @@
-﻿using HeartDisease.Domain.Models;
+﻿using HeartDisease.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -8,7 +8,7 @@ namespace HeartDisease.Infrastructure.Data.Configuration
     {
         public void Configure(EntityTypeBuilder<Patient> builder)
         {
-            builder.HasKey(p => p.PatientId);
+            builder.HasKey(p => p.Id);
             builder.Property(p => p.Name).IsRequired().HasMaxLength(100);
         }
     }

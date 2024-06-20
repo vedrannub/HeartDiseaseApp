@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -14,7 +14,9 @@ import {
   Box,
   Switch,
   FormControlLabel,
-  Badge
+  Badge,
+  Menu,
+  MenuItem
 } from '@mui/material';
 import {
   MenuOpen as MenuOpenIcon,
@@ -35,6 +37,7 @@ import {
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '~/resources/routes-constants';
+
 const drawerWidth = 240;
 const collapsedDrawerWidth = 64;
 
@@ -42,6 +45,8 @@ const MainLayout: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const navigate = useNavigate();
 
   const handleToggle = () => {
     setOpen(!open);
@@ -53,6 +58,19 @@ const MainLayout: React.FC = () => {
 
   const handleListItemClick = (index: number) => {
     setSelectedIndex(index);
+  };
+
+  const handleAvatarClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
   };
 
   const theme = createTheme({
@@ -122,9 +140,16 @@ const MainLayout: React.FC = () => {
             <IconButton color="inherit">
               <SettingsIcon />
             </IconButton>
-            <IconButton color="inherit">
+            <IconButton color="inherit" onClick={handleAvatarClick}>
               <AccountCircleIcon />
             </IconButton>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+            >
+              <MenuItem onClick={handleSignOut}>Sign Out</MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
         <Drawer

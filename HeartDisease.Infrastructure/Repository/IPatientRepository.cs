@@ -1,4 +1,4 @@
-﻿using HeartDisease.Domain.Models;
+﻿using HeartDisease.Infrastructure.Models;
 
 
 namespace HeartDisease.Infrastructure.Repository

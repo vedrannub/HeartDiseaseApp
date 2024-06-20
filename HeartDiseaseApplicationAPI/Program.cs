@@ -1,45 +1,84 @@
 using HeartDisease.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using HeartDisease.Domain.Models;
-using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using HeartDisease.Infrastructure.Models;
 using HeartDisease.Application.Dtos;
-
+using System.Text.Json.Serialization;
+using HeartDisease.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpointsApiExplorer();
+// Ensure the configuration is being read correctly
+var jwtKey = builder.Configuration["Jwt:Key"];
+var jwtIssuer = builder.Configuration["Jwt:Issuer"];
+var jwtAudience = builder.Configuration["Jwt:Audience"];
+
+if (string.IsNullOrEmpty(jwtKey) || jwtKey.Length < 32 || string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience))
+{
+    throw new ArgumentNullException("JWT configuration values are missing or invalid.");
+}
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("HeartDiseaseDB")));
 
-// Configure JSON serialization with the generated context
+builder.Services.AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtIssuer,
+        ValidAudience = jwtAudience,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+    };
+});
+
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
-/*    options.JsonSerializerOptions.TypeInfoResolver = JsonApiContext.Default;
-*/    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+    options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
 });
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin",
-        builder => builder.WithOrigins("http://127.0.0.1:3000") // Allow your front-end URL
+        builder => builder.WithOrigins("http://127.0.0.1:3000")
                           .AllowAnyHeader()
                           .AllowAnyMethod());
 });
 
-// Add Swagger services
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Heart Disease API", Version = "v1" });
-    c.MapType<DateOnly>(() => new OpenApiSchema { Type = "string", Format = "date" });  // Example for custom types
+    c.MapType<DateOnly>(() => new OpenApiSchema { Type = "string", Format = "date" });
 });
+
+builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    await RoleInitializer.Initialize(services);
+}
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -51,42 +90,118 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowSpecificOrigin");
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseCors("AllowSpecificOrigin");
-
+app.MapControllers();
 
 // Minimal APIs
 
+#region UserApi's
+
+app.MapPost("/users/register", async (RegisterUserDto userDto, UserManager<User> userManager) =>
+{
+    var user = new User
+    {
+        UserName = userDto.Username,
+        Email = userDto.Email,
+        DateCreated = DateTime.UtcNow,
+        DateModified = DateTime.UtcNow
+    };
+
+    var result = await userManager.CreateAsync(user, userDto.Password);
+
+    if (!result.Succeeded)
+    {
+        return Results.BadRequest(result.Errors);
+    }
+
+    return Results.Created($"/users/{user.Id}", user);
+}).WithName("RegisterUser").WithTags("Users").AllowAnonymous();
+
+app.MapPost("/users/login", async (LoginUserDto userDto, UserManager<User> userManager, SignInManager<User> signInManager, IConfiguration configuration) =>
+{
+    var user = await userManager.FindByEmailAsync(userDto.Email);
+
+    if (user == null)
+    {
+        return Results.Unauthorized();
+    }
+
+    var result = await signInManager.PasswordSignInAsync(user.UserName, userDto.Password, false, false);
+
+    if (!result.Succeeded)
+    {
+        return Results.Unauthorized();
+    }
+
+    var roles = await userManager.GetRolesAsync(user);
+    var token = JwtTokenGenerator.GenerateJwtToken(user, roles, configuration);
+
+    return Results.Ok(new { token });
+}).WithName("LoginUser").WithTags("Users").AllowAnonymous();
+
+app.MapDelete("/users/{id}", async (string id, UserManager<User> userManager) =>
+{
+    var user = await userManager.FindByIdAsync(id);
+
+    if (user == null)
+    {
+        return Results.NotFound();
+    }
+
+    var result = await userManager.DeleteAsync(user);
+
+    if (!result.Succeeded)
+    {
+        return Results.BadRequest(result.Errors);
+    }
+
+    return Results.Ok(user);
+}).WithName("DeleteUser").WithTags("Users");
+
+#endregion
+
 #region PatientApi's
 
-// Get a specific patient by ID
-app.MapGet("/patients/{id}", async (int id, ApplicationDbContext db) =>
-{
-    return await db.Patients.FindAsync(id)
-        is Patient patient
-            ? Results.Ok(patient)
-            : Results.NotFound();
-})
-.WithName("GetPatientById")
-.WithTags("Patients");
-
-// Create a new patient
-app.MapPost("/patient", async (Patient patient, ApplicationDbContext db) =>
-{
-    db.Patients.Add(patient);
-    await db.SaveChangesAsync();
-    return Results.Created($"/patient/{patient.PatientId}", patient);
-})
-.WithName("CreatePatient")
-.WithTags("Patients");
-
-// Update an existing patient
-app.MapPut("/patients/{id}", async (int id, Patient inputPatient, ApplicationDbContext db) =>
+app.MapGet("/patients/{id}", async (string id, ApplicationDbContext db) =>
 {
     var patient = await db.Patients.FindAsync(id);
 
-    if (patient is null) return Results.NotFound();
+    if (patient == null)
+    {
+        return Results.NotFound();
+    }
+
+    var patientDto = new PatientDto
+    {
+        Id = patient.Id,
+        Name = patient.Name,
+        DateOfBirth = patient.DateOfBirth
+    };
+
+    return Results.Ok(patientDto);
+})
+.WithName("GetPatientById")
+.WithTags("Patients")
+.RequireAuthorization();
+
+app.MapPost("/patients", async (Patient patient, ApplicationDbContext db) =>
+{
+    db.Patients.Add(patient);
+    await db.SaveChangesAsync();
+    return Results.Created($"/patients/{patient.Id}", patient);
+})
+.WithName("CreatePatient")
+.WithTags("Patients")
+.RequireAuthorization();
+
+app.MapPut("/patients/{id}", async (string id, Patient inputPatient, ApplicationDbContext db) =>
+{
+    var patient = await db.Patients.FindAsync(id);
+
+    if (patient == null) return Results.NotFound();
 
     patient.Name = inputPatient.Name;
     patient.DateOfBirth = inputPatient.DateOfBirth;
@@ -97,28 +212,26 @@ app.MapPut("/patients/{id}", async (int id, Patient inputPatient, ApplicationDbC
     return Results.NoContent();
 })
 .WithName("UpdatePatient")
-.WithTags("Patients");
+.WithTags("Patients")
+.RequireAuthorization();
 
-// Delete a patient
-app.MapDelete("/patients/{id}", async (int id, ApplicationDbContext db) =>
+app.MapDelete("/patients/{id}", async (string id, ApplicationDbContext db) =>
 {
-    if (await db.Patients.FindAsync(id) is Patient patient)
-    {
-        db.Patients.Remove(patient);
-        await db.SaveChangesAsync();
-        return Results.Ok(patient);
-    }
+    var patient = await db.Patients.FindAsync(id);
+    if (patient == null) return Results.NotFound();
 
-    return Results.NotFound();
+    db.Patients.Remove(patient);
+    await db.SaveChangesAsync();
+    return Results.Ok(patient);
 })
 .WithName("DeletePatient")
-.WithTags("Patients");
+.WithTags("Patients")
+.RequireAuthorization();
 
 #endregion
 
 #region PredictionApi's
 
-// Get all predictions
 app.MapGet("/predictions", async (ApplicationDbContext db) =>
 {
     var predictions = await db.Predictions
@@ -135,19 +248,20 @@ app.MapGet("/predictions", async (ApplicationDbContext db) =>
         PredictionDate = p.PredictionDate,
         Patient = new PatientDto
         {
-            PatientId = p.Patient.PatientId,
+            Id = p.Patient.Id,
             Name = p.Patient.Name,
             DateOfBirth = p.Patient.DateOfBirth
         },
         Doctor = new DoctorDto
         {
-            DoctorId = p.Doctor.DoctorId,
+            Id = p.Doctor.Id,
             Name = p.Doctor.Name
         }
-    });
+    }).ToList();
 
     return Results.Ok(predictionDtos);
-}).WithName("GetAllPredictions").WithTags("Predictions");
+}).WithName("GetAllPredictions").WithTags("Predictions")
+.RequireAuthorization();
 
 app.MapGet("/predictions/{id}", async (int id, ApplicationDbContext db) =>
 {
@@ -170,21 +284,21 @@ app.MapGet("/predictions/{id}", async (int id, ApplicationDbContext db) =>
         PredictionDate = prediction.PredictionDate,
         Patient = new PatientDto
         {
-            PatientId = prediction.Patient.PatientId,
+            Id = prediction.Patient.Id,
             Name = prediction.Patient.Name,
             DateOfBirth = prediction.Patient.DateOfBirth
         },
         Doctor = new DoctorDto
         {
-            DoctorId = prediction.Doctor.DoctorId,
+            Id = prediction.Doctor.Id,
             Name = prediction.Doctor.Name
         }
     };
 
     return Results.Ok(predictionDto);
-}).WithName("GetPredictionById").WithTags("Predictions");
+}).WithName("GetPredictionById").WithTags("Predictions")
+.RequireAuthorization();
 
-// Create a new prediction
 app.MapPost("/predictions", async (Prediction prediction, ApplicationDbContext db) =>
 {
     db.Predictions.Add(prediction);
@@ -192,9 +306,9 @@ app.MapPost("/predictions", async (Prediction prediction, ApplicationDbContext d
     return Results.Created($"/predictions/{prediction.PredictionId}", prediction);
 })
 .WithName("CreatePrediction")
-.WithTags("Predictions");
+.WithTags("Predictions")
+.RequireAuthorization();
 
-// Update an existing prediction
 app.MapPut("/predictions/{id}", async (int id, Prediction inputPrediction, ApplicationDbContext db) =>
 {
     var prediction = await db.Predictions.FindAsync(id);
@@ -209,9 +323,9 @@ app.MapPut("/predictions/{id}", async (int id, Prediction inputPrediction, Appli
     return Results.NoContent();
 })
 .WithName("UpdatePrediction")
-.WithTags("Predictions");
+.WithTags("Predictions")
+.RequireAuthorization();
 
-// Delete a prediction
 app.MapDelete("/predictions/{id}", async (int id, ApplicationDbContext db) =>
 {
     var prediction = await db.Predictions.FindAsync(id);
@@ -222,32 +336,30 @@ app.MapDelete("/predictions/{id}", async (int id, ApplicationDbContext db) =>
     return Results.Ok();
 })
 .WithName("DeletePrediction")
-.WithTags("Predictions");
-
+.WithTags("Predictions")
+.RequireAuthorization();
 
 #endregion
 
 #region DoctorApi's
 
-// Get all doctors
 app.MapGet("/doctors", async (ApplicationDbContext db) =>
 {
     var doctors = await db.Doctors.Include(d => d.PredictionsMade).ToListAsync();
 
     var doctorDtos = doctors.Select(d => new DoctorDto
     {
-        DoctorId = d.DoctorId,
+        Id = d.Id,
         Name = d.Name
     }).ToList();
 
     return Results.Ok(doctorDtos);
-}).WithName("GetAllDoctors").WithTags("Doctors");
+}).WithName("GetAllDoctors").WithTags("Doctors")
+.RequireAuthorization();
 
-
-// Get a doctor by ID
-app.MapGet("/doctors/{id}", async (int id, ApplicationDbContext db) =>
+app.MapGet("/doctors/{id}", async (string id, ApplicationDbContext db) =>
 {
-    var doctor = await db.Doctors.Include(d => d.PredictionsMade).FirstOrDefaultAsync(d => d.DoctorId == id);
+    var doctor = await db.Doctors.Include(d => d.PredictionsMade).FirstOrDefaultAsync(d => d.Id == id);
 
     if (doctor == null)
     {
@@ -256,52 +368,47 @@ app.MapGet("/doctors/{id}", async (int id, ApplicationDbContext db) =>
 
     var doctorDto = new DoctorDto
     {
-        DoctorId = doctor.DoctorId,
+        Id = doctor.Id,
         Name = doctor.Name
     };
 
     return Results.Ok(doctorDto);
-}).WithName("GetDoctorById").WithTags("Doctors");
+}).WithName("GetDoctorById").WithTags("Doctors")
+.RequireAuthorization();
 
-
-// Create a new doctor
 app.MapPost("/doctors", async (Doctor doctor, ApplicationDbContext db) =>
 {
     db.Doctors.Add(doctor);
     await db.SaveChangesAsync();
-    return Results.Created($"/doctors/{doctor.DoctorId}", doctor);
-}).WithName("CreateDoctor").WithTags("Doctors");
+    return Results.Created($"/doctors/{doctor.Id}", doctor);
+}).WithName("CreateDoctor").WithTags("Doctors")
+.RequireAuthorization();
 
-// Update an existing doctor
-app.MapPut("/doctors/{id}", async (int id, Doctor inputDoctor, ApplicationDbContext db) =>
+app.MapPut("/doctors/{id}", async (string id, Doctor inputDoctor, ApplicationDbContext db) =>
 {
     var doctor = await db.Doctors.FindAsync(id);
 
-    if (doctor is null) return Results.NotFound();
+    if (doctor == null) return Results.NotFound();
 
     doctor.Name = inputDoctor.Name;
 
     await db.SaveChangesAsync();
 
     return Results.NoContent();
-}).WithName("UpdateDoctor").WithTags("Doctors");
+}).WithName("UpdateDoctor").WithTags("Doctors")
+.RequireAuthorization();
 
-// Delete a doctor
-app.MapDelete("/doctors/{id}", async (int id, ApplicationDbContext db) =>
+app.MapDelete("/doctors/{id}", async (string id, ApplicationDbContext db) =>
 {
-    if (await db.Doctors.FindAsync(id) is Doctor doctor)
-    {
-        db.Doctors.Remove(doctor);
-        await db.SaveChangesAsync();
-        return Results.Ok(doctor);
-    }
+    var doctor = await db.Doctors.FindAsync(id);
+    if (doctor == null) return Results.NotFound();
 
-    return Results.NotFound();
-}).WithName("DeleteDoctor").WithTags("Doctors");
-
+    db.Doctors.Remove(doctor);
+    await db.SaveChangesAsync();
+    return Results.Ok(doctor);
+}).WithName("DeleteDoctor").WithTags("Doctors")
+.RequireAuthorization();
 
 #endregion
-
-app.MapControllers();
 
 app.Run();

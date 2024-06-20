@@ -9,8 +9,8 @@ namespace HeartDisease.Application.Dtos
     public class PredictionDto
     {
         public int PredictionId { get; set; }
-        public int PatientId { get; set; }
-        public int DoctorId { get; set; }
+        public string PatientId { get; set; }
+        public string DoctorId { get; set; }
         public bool HasHeartDisease { get; set; }
         public DateTime PredictionDate { get; set; }
         public PatientDto Patient { get; set; }

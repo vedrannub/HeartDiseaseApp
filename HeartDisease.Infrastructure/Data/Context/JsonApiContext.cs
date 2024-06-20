@@ -1,15 +1,15 @@
 ﻿using System.Text.Json.Serialization;
-using HeartDisease.Domain.Models;
+using HeartDisease.Infrastructure.Models;
 
 namespace HeartDisease.Infrastructure.Context
 {
     [JsonSourceGenerationOptions(PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase)]
-    [JsonSerializable(typeof(Patient))]
-    [JsonSerializable(typeof(List<Patient>))]
+    [JsonSerializable(typeof(User))]
+    [JsonSerializable(typeof(List<User>))]
     [JsonSerializable(typeof(Prediction))]
-    [JsonSerializable(typeof(List<Prediction>))]
-    [JsonSerializable(typeof(Doctor))]
-    [JsonSerializable(typeof(List<Doctor>))]
+    [JsonSerializable(typeof(List<User>))]
+    [JsonSerializable(typeof(User))]
+    [JsonSerializable(typeof(List<User>))]
     public partial class JsonApiContext : JsonSerializerContext
     {
     }

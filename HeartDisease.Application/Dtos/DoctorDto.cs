@@ -8,7 +8,7 @@ namespace HeartDisease.Application.Dtos
 {
     public class DoctorDto
     {
-        public int DoctorId { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
     }
 }

@@ -15,3 +15,13 @@ C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\refint\HeartDisease.In
 C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.pdb
 C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.genruntimeconfig.cache
 C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\ref\HeartDisease.Infrastructure.dll
+C:\Diplomska\HeartDisease.Infrastructure\obj\Debug\net8.0\HeartDisease.Infrastructure.sourcelink.json
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Tests.deps.json
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Tests.runtimeconfig.json
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\testhost.exe
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\testhost.dll
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\Microsoft.TestPlatform.AdapterUtilities.dll
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Tests.dll
+C:\Diplomska\HeartDisease.Infrastructure\bin\Debug\net8.0\HeartDisease.Tests.pdb

@@ -1,5 +1,5 @@
-﻿using HeartDisease.Domain.Models;
-using HeartDisease.Infrastructure.Context;
+﻿using HeartDisease.Infrastructure.Context;
+using HeartDisease.Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 
