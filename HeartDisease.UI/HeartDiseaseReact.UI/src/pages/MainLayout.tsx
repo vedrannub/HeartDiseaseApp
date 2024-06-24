@@ -4,7 +4,6 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
   Drawer,
   List,
   ListItemButton,
@@ -16,13 +15,13 @@ import {
   FormControlLabel,
   Badge,
   Menu,
-  MenuItem
+  MenuItem,
+  Avatar,
 } from '@mui/material';
 import {
   MenuOpen as MenuOpenIcon,
   Menu as MenuIcon,
   Notifications as NotificationsIcon,
-  Settings as SettingsIcon,
   AccountCircle as AccountCircleIcon,
   Brightness4 as Brightness4Icon,
   Brightness7 as Brightness7Icon,
@@ -32,11 +31,12 @@ import {
   MedicalServices as MedicalServicesIcon,
   CalendarToday as CalendarTodayIcon,
   Person as PersonIcon,
-  Forum as ForumIcon
+  Forum as ForumIcon,
 } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '~/resources/routes-constants';
+import logo from '../../public/logo.png.webp';
 
 const drawerWidth = 240;
 const collapsedDrawerWidth = 64;
@@ -68,9 +68,15 @@ const MainLayout: React.FC = () => {
     setAnchorEl(null);
   };
 
+  const handleMyAccount = () => {
+    handleMenuClose();
+    navigate(ROUTES.MY_ACCOUNT);
+  };
+
   const handleSignOut = () => {
     localStorage.removeItem('token');
-    navigate('/login');
+    handleMenuClose();
+    navigate('/signin');
   };
 
   const theme = createTheme({
@@ -98,7 +104,6 @@ const MainLayout: React.FC = () => {
     { text: 'Appointments', icon: <CalendarTodayIcon />, path: '/appointments' },
     { text: 'Health Data', icon: <PersonIcon />, path: '/healthdata' },
     { text: 'Messages', icon: <ForumIcon />, path: '/messages' },
-    { text: 'Settings', icon: <SettingsIcon />, path: '/settings' },
   ];
 
   return (
@@ -107,20 +112,18 @@ const MainLayout: React.FC = () => {
         <CssBaseline />
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
           <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={handleToggle}
+            <Box
+              component="img"
+              src={logo}
+              alt="Logo"
               sx={{
-                transition: 'transform 0.3s',
+                height: 40,
+                cursor: 'pointer',
+                marginRight: 2,
               }}
-            >
-              {open ? <MenuOpenIcon /> : <MenuIcon />}
-            </IconButton>
-            <Typography variant="h6" noWrap sx={{ flexGrow: 1 }}>
-              Dashboard
-            </Typography>
+              onClick={() => navigate(ROUTES.HOMEPAGE_ROUTE)}
+            />
+            <Box sx={{ flexGrow: 1 }} />
             <FormControlLabel
               control={
                 <Switch
@@ -137,9 +140,6 @@ const MainLayout: React.FC = () => {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <IconButton color="inherit">
-              <SettingsIcon />
-            </IconButton>
             <IconButton color="inherit" onClick={handleAvatarClick}>
               <AccountCircleIcon />
             </IconButton>
@@ -148,6 +148,7 @@ const MainLayout: React.FC = () => {
               open={Boolean(anchorEl)}
               onClose={handleMenuClose}
             >
+              <MenuItem onClick={handleMyAccount}>My Account</MenuItem>
               <MenuItem onClick={handleSignOut}>Sign Out</MenuItem>
             </Menu>
           </Toolbar>
@@ -175,9 +176,12 @@ const MainLayout: React.FC = () => {
             sx={{
               width: open ? drawerWidth : collapsedDrawerWidth,
               paddingTop: 8,
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
             }}
             role="presentation"
-            onKeyDown={handleToggle}
           >
             <List sx={{ width: '100%', padding: open ? '0 8px' : '0 4px' }}>
               {menuItems.map((item, index) => (
@@ -225,6 +229,25 @@ const MainLayout: React.FC = () => {
                 </ListItemButton>
               ))}
             </List>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                paddingBottom: 2,
+              }}
+            >
+              <IconButton
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                onClick={handleToggle}
+                sx={{
+                  transition: 'transform 0.3s',
+                }}
+              >
+                {open ? <MenuOpenIcon /> : <MenuIcon />}
+              </IconButton>
+            </Box>
           </Box>
         </Drawer>
         <Box
@@ -234,6 +257,8 @@ const MainLayout: React.FC = () => {
             p: 2,
             transition: 'margin-left 0.3s',
             marginTop: '64px',
+            height: 'calc(100vh - 64px)',
+            overflow: 'auto',
           }}
         >
           <Outlet />
