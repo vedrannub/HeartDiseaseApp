@@ -76,7 +76,7 @@ const MainLayout: React.FC = () => {
   const handleSignOut = () => {
     localStorage.removeItem('token');
     handleMenuClose();
-    navigate('/signin');
+    navigate(ROUTES.SIGNIN_ROUTE);
   };
 
   const theme = createTheme({

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HeartDisease.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5740be8a1b9f086a92378d239efba822659447ff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f42ece4b496e8210345d5a88bd3876d99216a98a")]
 [assembly: System.Reflection.AssemblyProductAttribute("HeartDisease.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HeartDisease.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

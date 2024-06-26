@@ -1,0 +1,220 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|c:\\diplomska\\heartdiseasepredictorapi\\heartdiseasepredictorapi\\services\\modeltrainingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|solutionrelative:services\\modeltrainingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|c:\\diplomska\\heartdiseasepredictorapi\\heartdiseasepredictorapi\\controllers\\predictioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|solutionrelative:controllers\\predictioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|c:\\diplomska\\heartdiseasepredictorapi\\heartdiseasepredictorapi\\heartdiseasepredictorapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|solutionrelative:heartdiseasepredictorapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|c:\\diplomska\\heartdiseasepredictorapi\\heartdiseasepredictorapi\\models\\heartdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|solutionrelative:models\\heartdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|c:\\diplomska\\heartdiseasepredictorapi\\heartdiseasepredictorapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|c:\\diplomska\\heartdiseasepredictorapi\\heartdiseasepredictorapi\\services\\predictionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|solutionrelative:services\\predictionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|c:\\diplomska\\heartdiseasepredictorapi\\heartdiseasepredictorapi\\heartdiseasepredictorapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|solutionrelative:heartdiseasepredictorapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|c:\\diplomska\\heartdiseasepredictorapi\\heartdiseasepredictorapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{53A5AC23-7C4F-49FC-91B2-A28BD8BF6A0E}|HeartDiseasePredictorAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Diplomska\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartPrediction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Diplomska\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Diplomska\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\SampleHeartData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 109,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HeartDiseasePredictorAPI.http",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI.http",
+              "RelativeDocumentMoniker": "HeartDiseasePredictorAPI.http",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI.http",
+              "RelativeToolTip": "HeartDiseasePredictorAPI.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-06-25T22:43:29.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HeartDiseasePredictorAPI",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI.csproj",
+              "RelativeDocumentMoniker": "HeartDiseasePredictorAPI.csproj",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI.csproj",
+              "RelativeToolTip": "HeartDiseasePredictorAPI.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-06-25T22:42:01.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-25T22:24:23.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HeartPrediction.cs",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartPrediction.cs",
+              "RelativeDocumentMoniker": "..\\..\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartPrediction.cs",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartPrediction.cs",
+              "RelativeToolTip": "..\\..\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartPrediction.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T22:22:46.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HeartData.cs",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartData.cs",
+              "RelativeDocumentMoniker": "..\\..\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartData.cs",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartData.cs",
+              "RelativeToolTip": "..\\..\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\HeartData.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T22:22:42.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SampleHeartData.cs",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\SampleHeartData.cs",
+              "RelativeDocumentMoniker": "..\\..\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\SampleHeartData.cs",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\SampleHeartData.cs",
+              "RelativeToolTip": "..\\..\\HeartDiseasePredictor\\BinaryClassification_HeartDiseaseDetection\\HeartDiseaseDetection\\HeartDiseaseDetection\\DataStructures\\SampleHeartData.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T22:22:37.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PredictionService.cs",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Services\\PredictionService.cs",
+              "RelativeDocumentMoniker": "Services\\PredictionService.cs",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Services\\PredictionService.cs",
+              "RelativeToolTip": "Services\\PredictionService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T22:21:20.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ModelTrainingService.cs",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Services\\ModelTrainingService.cs",
+              "RelativeDocumentMoniker": "Services\\ModelTrainingService.cs",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Services\\ModelTrainingService.cs",
+              "RelativeToolTip": "Services\\ModelTrainingService.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T22:20:56.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PredictionController.cs",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Controllers\\PredictionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PredictionController.cs",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Controllers\\PredictionController.cs",
+              "RelativeToolTip": "Controllers\\PredictionController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAYwB8AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T22:07:19.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T22:05:26.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HeartData.cs",
+              "DocumentMoniker": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Models\\HeartData.cs",
+              "RelativeDocumentMoniker": "Models\\HeartData.cs",
+              "ToolTip": "C:\\Diplomska\\HeartDiseasePredictorAPI\\HeartDiseasePredictorAPI\\Models\\HeartData.cs",
+              "RelativeToolTip": "Models\\HeartData.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAIA9wDcAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-25T22:00:27.908Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

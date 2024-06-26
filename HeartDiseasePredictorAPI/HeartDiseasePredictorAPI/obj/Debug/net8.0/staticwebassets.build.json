@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Y4ipmU32PGL72RtbG0iJV1JO013bZ8zeA6yOw8UBGb4=",
+  "Source": "HeartDiseasePredictorAPI",
+  "BasePath": "_content/HeartDiseasePredictorAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -22,6 +22,140 @@ namespace HeartDisease.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Appointment", b =>
+                {
+                    b.Property<int>("AppointmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AppointmentId"));
+
+                    b.Property<string>("AppointmentDetails")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AppointmentList")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("AppointmentId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.HealthData", b =>
+                {
+                    b.Property<int>("HealthDataId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HealthDataId"));
+
+                    b.Property<string>("HealthDataTrends")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PersonalHealthData")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("HealthDataId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("HealthData");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Medication", b =>
+                {
+                    b.Property<int>("MedicationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicationId"));
+
+                    b.Property<string>("MedicationList")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("MedicationId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Medications");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Message", b =>
+                {
+                    b.Property<int>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MessageId"));
+
+                    b.Property<string>("MessageThreads")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MiniThreadStyle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ThreadStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Notification", b =>
+                {
+                    b.Property<int>("NotificationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NotificationId"));
+
+                    b.Property<DateTime>("NotificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NotificationText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("NotificationId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Notifications");
+                });
+
             modelBuilder.Entity("HeartDisease.Infrastructure.Models.Prediction", b =>
                 {
                     b.Property<int>("PredictionId")
@@ -30,12 +164,39 @@ namespace HeartDisease.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PredictionId"));
 
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Ca")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Chol")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Cp")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateAdded")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("DoctorId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("Exang")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Fbs")
+                        .HasColumnType("int");
+
                     b.Property<bool>("HasHeartDisease")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Num")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Oldpeak")
+                        .HasColumnType("float");
 
                     b.Property<string>("PatientId")
                         .IsRequired()
@@ -44,6 +205,24 @@ namespace HeartDisease.Infrastructure.Migrations
                     b.Property<DateTime>("PredictionDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Restecg")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Sex")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Slope")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Thal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Thalach")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Trestbps")
+                        .HasColumnType("int");
+
                     b.HasKey("PredictionId");
 
                     b.HasIndex("DoctorId");
@@ -51,6 +230,101 @@ namespace HeartDisease.Infrastructure.Migrations
                     b.HasIndex("PatientId");
 
                     b.ToTable("Predictions");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Report", b =>
+                {
+                    b.Property<int>("ReportId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReportId"));
+
+                    b.Property<string>("DetailedReports")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DownloadableReports")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("GraphicalReports")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReportSummary")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("ReportId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Reports");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Suggestion", b =>
+                {
+                    b.Property<int>("SuggestionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SuggestionId"));
+
+                    b.Property<string>("DetailedViewOfSuggestions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DoctorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PatientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("SuggestionText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SuggestionId");
+
+                    b.HasIndex("DoctorId");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("Suggestions");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.TreatmentPlan", b =>
+                {
+                    b.Property<int>("TreatmentPlanId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TreatmentPlanId"));
+
+                    b.Property<string>("Progress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TreatmentPlanDetails")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("TreatmentPlanId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TreatmentPlans");
                 });
 
             modelBuilder.Entity("HeartDisease.Infrastructure.Models.User", b =>
@@ -297,6 +571,61 @@ namespace HeartDisease.Infrastructure.Migrations
                     b.HasDiscriminator().HasValue("Patient");
                 });
 
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Appointment", b =>
+                {
+                    b.HasOne("HeartDisease.Infrastructure.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.HealthData", b =>
+                {
+                    b.HasOne("HeartDisease.Infrastructure.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Medication", b =>
+                {
+                    b.HasOne("HeartDisease.Infrastructure.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Message", b =>
+                {
+                    b.HasOne("HeartDisease.Infrastructure.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Notification", b =>
+                {
+                    b.HasOne("HeartDisease.Infrastructure.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("HeartDisease.Infrastructure.Models.Prediction", b =>
                 {
                     b.HasOne("HeartDisease.Infrastructure.Models.Doctor", "Doctor")
@@ -314,6 +643,47 @@ namespace HeartDisease.Infrastructure.Migrations
                     b.Navigation("Doctor");
 
                     b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Report", b =>
+                {
+                    b.HasOne("HeartDisease.Infrastructure.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.Suggestion", b =>
+                {
+                    b.HasOne("HeartDisease.Infrastructure.Models.Doctor", "Doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("HeartDisease.Infrastructure.Models.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HeartDisease.Infrastructure.Models.TreatmentPlan", b =>
+                {
+                    b.HasOne("HeartDisease.Infrastructure.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

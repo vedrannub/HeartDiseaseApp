@@ -13,6 +13,14 @@ namespace HeartDisease.Infrastructure.Context
         public DbSet<Prediction> Predictions { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<Report> Reports { get; set; }
+        public DbSet<Suggestion> Suggestions { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<HealthData> HealthData { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Medication> Medications { get; set; }
+        public DbSet<TreatmentPlan> TreatmentPlans { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,12 +44,105 @@ namespace HeartDisease.Infrastructure.Context
                 entity.HasOne(e => e.Patient)
                       .WithMany(p => p.Predictions)
                       .HasForeignKey(e => e.PatientId)
-                      .OnDelete(DeleteBehavior.Restrict); // Use Restrict to avoid cycles or multiple cascade paths
+                      .OnDelete(DeleteBehavior.Restrict);
 
                 entity.HasOne(e => e.Doctor)
                       .WithMany(d => d.PredictionsMade)
                       .HasForeignKey(e => e.DoctorId)
-                      .OnDelete(DeleteBehavior.Restrict); // Use Restrict to avoid cycles or multiple cascade paths
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // Configure the relationships for Report
+            modelBuilder.Entity<Report>(entity =>
+            {
+                entity.HasKey(e => e.ReportId);
+
+                entity.HasOne(e => e.User)
+                      .WithMany()
+                      .HasForeignKey(e => e.UserId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // Configure the relationships for Suggestion
+            modelBuilder.Entity<Suggestion>(entity =>
+            {
+                entity.HasKey(e => e.SuggestionId);
+
+                entity.HasOne(e => e.Patient)
+                      .WithMany()
+                      .HasForeignKey(e => e.PatientId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(e => e.Doctor)
+                      .WithMany()
+                      .HasForeignKey(e => e.DoctorId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // Configure the relationships for Appointment
+            modelBuilder.Entity<Appointment>(entity =>
+            {
+                entity.HasKey(e => e.AppointmentId);
+
+                entity.HasOne(e => e.User)
+                      .WithMany()
+                      .HasForeignKey(e => e.UserId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // Configure the relationships for HealthData
+            modelBuilder.Entity<HealthData>(entity =>
+            {
+                entity.HasKey(e => e.HealthDataId);
+
+                entity.HasOne(e => e.User)
+                      .WithMany()
+                      .HasForeignKey(e => e.UserId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // Configure the relationships for Message
+            modelBuilder.Entity<Message>(entity =>
+            {
+                entity.HasKey(e => e.MessageId);
+
+                entity.HasOne(e => e.User)
+                      .WithMany()
+                      .HasForeignKey(e => e.UserId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // Configure the relationships for Notification
+            modelBuilder.Entity<Notification>(entity =>
+            {
+                entity.HasKey(e => e.NotificationId);
+
+                entity.HasOne(e => e.User)
+                      .WithMany()
+                      .HasForeignKey(e => e.UserId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // Configure the relationships for Medication
+            modelBuilder.Entity<Medication>(entity =>
+            {
+                entity.HasKey(e => e.MedicationId);
+
+                entity.HasOne(e => e.User)
+                      .WithMany()
+                      .HasForeignKey(e => e.UserId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            // Configure the relationships for TreatmentPlan
+            modelBuilder.Entity<TreatmentPlan>(entity =>
+            {
+                entity.HasKey(e => e.TreatmentPlanId);
+
+                entity.HasOne(e => e.User)
+                      .WithMany()
+                      .HasForeignKey(e => e.UserId)
+                      .OnDelete(DeleteBehavior.Restrict);
             });
         }
     }

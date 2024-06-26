@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HeartDisease.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73c06fc5a50c5b24280841c07613cd09955458c9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f42ece4b496e8210345d5a88bd3876d99216a98a")]
 [assembly: System.Reflection.AssemblyProductAttribute("HeartDisease.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HeartDisease.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -66,6 +66,35 @@ builder.Services.AddCors(options =>
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Heart Disease API", Version = "v1" });
+
+    // Define the security scheme
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme (Example: 'Bearer 12345abcdef')",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                },
+                Scheme = "oauth2",
+                Name = "Bearer",
+                In = ParameterLocation.Header,
+            },
+            new List<string>()
+        }
+    });
+
     c.MapType<DateOnly>(() => new OpenApiSchema { Type = "string", Format = "date" });
 });
 
@@ -245,18 +274,7 @@ app.MapGet("/predictions", async (ApplicationDbContext db) =>
         PatientId = p.PatientId,
         DoctorId = p.DoctorId,
         HasHeartDisease = p.HasHeartDisease,
-        PredictionDate = p.PredictionDate,
-        Patient = new PatientDto
-        {
-            Id = p.Patient.Id,
-            Name = p.Patient.Name,
-            DateOfBirth = p.Patient.DateOfBirth
-        },
-        Doctor = new DoctorDto
-        {
-            Id = p.Doctor.Id,
-            Name = p.Doctor.Name
-        }
+        PredictionDate = p.PredictionDate
     }).ToList();
 
     return Results.Ok(predictionDtos);
@@ -281,43 +299,40 @@ app.MapGet("/predictions/{id}", async (int id, ApplicationDbContext db) =>
         PatientId = prediction.PatientId,
         DoctorId = prediction.DoctorId,
         HasHeartDisease = prediction.HasHeartDisease,
-        PredictionDate = prediction.PredictionDate,
-        Patient = new PatientDto
-        {
-            Id = prediction.Patient.Id,
-            Name = prediction.Patient.Name,
-            DateOfBirth = prediction.Patient.DateOfBirth
-        },
-        Doctor = new DoctorDto
-        {
-            Id = prediction.Doctor.Id,
-            Name = prediction.Doctor.Name
-        }
+        PredictionDate = prediction.PredictionDate
     };
 
     return Results.Ok(predictionDto);
 }).WithName("GetPredictionById").WithTags("Predictions")
 .RequireAuthorization();
 
-app.MapPost("/predictions", async (Prediction prediction, ApplicationDbContext db) =>
+app.MapPost("/predictions", async (PredictionDto predictionDto, ApplicationDbContext db) =>
 {
+    var prediction = new Prediction
+    {
+        PatientId = predictionDto.PatientId,
+        DoctorId = predictionDto.DoctorId,
+        HasHeartDisease = predictionDto.HasHeartDisease,
+        PredictionDate = predictionDto.PredictionDate
+    };
+
     db.Predictions.Add(prediction);
     await db.SaveChangesAsync();
-    return Results.Created($"/predictions/{prediction.PredictionId}", prediction);
+    return Results.Created($"/predictions/{prediction.PredictionId}", predictionDto);
 })
 .WithName("CreatePrediction")
 .WithTags("Predictions")
 .RequireAuthorization();
 
-app.MapPut("/predictions/{id}", async (int id, Prediction inputPrediction, ApplicationDbContext db) =>
+app.MapPut("/predictions/{id}", async (int id, PredictionDto inputPredictionDto, ApplicationDbContext db) =>
 {
     var prediction = await db.Predictions.FindAsync(id);
     if (prediction == null) return Results.NotFound();
 
-    prediction.PatientId = inputPrediction.PatientId;
-    prediction.DoctorId = inputPrediction.DoctorId;
-    prediction.HasHeartDisease = inputPrediction.HasHeartDisease;
-    prediction.PredictionDate = inputPrediction.PredictionDate;
+    prediction.PatientId = inputPredictionDto.PatientId;
+    prediction.DoctorId = inputPredictionDto.DoctorId;
+    prediction.HasHeartDisease = inputPredictionDto.HasHeartDisease;
+    prediction.PredictionDate = inputPredictionDto.PredictionDate;
 
     await db.SaveChangesAsync();
     return Results.NoContent();

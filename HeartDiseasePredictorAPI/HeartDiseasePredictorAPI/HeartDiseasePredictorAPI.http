@@ -1,0 +1,27 @@
+@HeartDiseasePredictorAPI_HostAddress = http://localhost:5296
+
+POST {{HeartDiseasePredictorAPI_HostAddress}}/api/prediction/train?dataPath=C:\Diplomska\HeartDiseasePredictorAPI\HeartDiseasePredictorAPI\Data\HeartTraining.csv
+Accept: application/json
+
+###
+
+POST {{HeartDiseasePredictorAPI_HostAddress}}/api/prediction/predict
+Content-Type: application/json
+Accept: application/json
+
+{
+  "Age": 63,
+  "Sex": 1,
+  "Cp": 3,
+  "Trestbps": 145,
+  "Chol": 233,
+  "Fbs": 1,
+  "Restecg": 0,
+  "Thalach": 150,
+  "Exang": 0,
+  "Oldpeak": 2.3,
+  "Slope": 0,
+  "Ca": 0,
+  "Thal": 1
+}
+###

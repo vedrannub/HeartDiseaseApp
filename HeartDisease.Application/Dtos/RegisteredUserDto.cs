@@ -13,3 +13,4 @@ namespace HeartDisease.Application.Dtos
         public string Password { get; set; }
     }
 }
+ 
