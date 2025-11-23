@@ -24,7 +24,7 @@ if (string.IsNullOrEmpty(jwtKey) || jwtKey.Length < 32 || string.IsNullOrEmpty(j
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("HeartDiseaseDB")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("HeartDiseaseDB")));
 
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -105,29 +105,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var dbContext = services.GetRequiredService<ApplicationDbContext>();
-    
-    // Create database from scratch without migrations
-    try
-    {
-        dbContext.Database.EnsureDeleted();
-        dbContext.Database.EnsureCreated();
-        Console.WriteLine("Database created successfully");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error creating database: {ex.Message}");
-    }
-    
-    try
-    {
-        await RoleInitializer.Initialize(services);
-        Console.WriteLine("Roles initialized successfully");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"Error initializing roles: {ex.Message}");
-    }
+    await RoleInitializer.Initialize(services);
 }
 
 if (app.Environment.IsDevelopment())

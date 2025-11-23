@@ -1,33 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/HeartDiseaseApp/HeartDisease.Common/HeartDisease.Common.csproj": {}
+    "C:\\Diplomska\\HeartDisease.Common\\HeartDisease.Common.csproj": {}
   },
   "projects": {
-    "/workspaces/HeartDiseaseApp/HeartDisease.Common/HeartDisease.Common.csproj": {
+    "C:\\Diplomska\\HeartDisease.Common\\HeartDisease.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/HeartDiseaseApp/HeartDisease.Common/HeartDisease.Common.csproj",
+        "projectUniqueName": "C:\\Diplomska\\HeartDisease.Common\\HeartDisease.Common.csproj",
         "projectName": "HeartDisease.Common",
-        "projectPath": "/workspaces/HeartDiseaseApp/HeartDisease.Common/HeartDisease.Common.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/HeartDiseaseApp/HeartDisease.Common/obj/",
+        "projectPath": "C:\\Diplomska\\HeartDisease.Common\\HeartDisease.Common.csproj",
+        "packagesPath": "C:\\Users\\veeeco\\.nuget\\packages\\",
+        "outputPath": "C:\\Diplomska\\HeartDisease.Common\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\veeeco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/workspaces/HeartDiseaseApp/HeartDisease.Domain/HeartDisease.Domain.csproj": {
-                "projectPath": "/workspaces/HeartDiseaseApp/HeartDisease.Domain/HeartDisease.Domain.csproj"
+              "C:\\Diplomska\\HeartDisease.Domain\\HeartDisease.Domain.csproj": {
+                "projectPath": "C:\\Diplomska\\HeartDisease.Domain\\HeartDisease.Domain.csproj"
               }
             }
           }
@@ -76,34 +78,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.415/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/workspaces/HeartDiseaseApp/HeartDisease.Domain/HeartDisease.Domain.csproj": {
+    "C:\\Diplomska\\HeartDisease.Domain\\HeartDisease.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/HeartDiseaseApp/HeartDisease.Domain/HeartDisease.Domain.csproj",
+        "projectUniqueName": "C:\\Diplomska\\HeartDisease.Domain\\HeartDisease.Domain.csproj",
         "projectName": "HeartDisease.Domain",
-        "projectPath": "/workspaces/HeartDiseaseApp/HeartDisease.Domain/HeartDisease.Domain.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/HeartDiseaseApp/HeartDisease.Domain/obj/",
+        "projectPath": "C:\\Diplomska\\HeartDisease.Domain\\HeartDisease.Domain.csproj",
+        "packagesPath": "C:\\Users\\veeeco\\.nuget\\packages\\",
+        "outputPath": "C:\\Diplomska\\HeartDisease.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\veeeco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/workspaces/HeartDiseaseApp/HeartDisease.Tests/HeartDisease.Tests.csproj": {
-                "projectPath": "/workspaces/HeartDiseaseApp/HeartDisease.Tests/HeartDisease.Tests.csproj"
+              "C:\\Diplomska\\HeartDisease.Tests\\HeartDisease.Tests.csproj": {
+                "projectPath": "C:\\Diplomska\\HeartDisease.Tests\\HeartDisease.Tests.csproj"
               }
             }
           }
@@ -156,26 +160,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.415/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/workspaces/HeartDiseaseApp/HeartDisease.Tests/HeartDisease.Tests.csproj": {
+    "C:\\Diplomska\\HeartDisease.Tests\\HeartDisease.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/HeartDiseaseApp/HeartDisease.Tests/HeartDisease.Tests.csproj",
+        "projectUniqueName": "C:\\Diplomska\\HeartDisease.Tests\\HeartDisease.Tests.csproj",
         "projectName": "HeartDisease.Tests",
-        "projectPath": "/workspaces/HeartDiseaseApp/HeartDisease.Tests/HeartDisease.Tests.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/HeartDiseaseApp/HeartDisease.Tests/obj/",
+        "projectPath": "C:\\Diplomska\\HeartDisease.Tests\\HeartDisease.Tests.csproj",
+        "packagesPath": "C:\\Users\\veeeco\\.nuget\\packages\\",
+        "outputPath": "C:\\Diplomska\\HeartDisease.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\veeeco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -244,7 +250,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.415/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
